@@ -34,7 +34,8 @@ router.set("view engine", "ejs");
 router.use(express.static(path.join(__dirname, "views/pages")));
 
 router.get("/", (req, res) => {
-  res.render(path.join(__dirname, "views", "pages", "index"));
+  // res.render(path.join(__dirname, "views", "pages", "index"));
+  res.redirect("https://express-swagger-brown.vercel.app/api-docs/");
 });
 
 export default router;

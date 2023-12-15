@@ -1,6 +1,6 @@
 import express from "express";
 import bodyParser from "body-parser";
-import data from "../Data/data.js";
+import data from "../src/Data/data.js";
 
 const postRouter = express.Router();
 

@@ -8,7 +8,7 @@ import swaggerJsDoc from "swagger-jsdoc";
 import bodyParser from "body-parser";
 
 // Import the router from the hello.js file
-import postRouter from "./src/Routes/posts.js";
+// import postRouter from "./Routes/posts.js";
 import helloRouter from "./src/hello.js";
 
 // CDN CSS
@@ -41,13 +41,13 @@ const options = {
     },
     servers: [
       {
-        url: "https://nodejs-swagger-api.vercel.app/",
+        url: "https://express-swagger-brown.vercel.app/",
         description: "My API Documentation",
       },
     ],
   },
   // This is to call all the file
-  apis: ["src/**/*.js"],
+  apis: ["./*.js"],
 };
 
 const specs = swaggerJsDoc(options);
@@ -62,8 +62,29 @@ app.use(
 // Here we are calling the basic html
 // Use the router from the hello.js file
 app.use("/", helloRouter);
+
+/**
+ * @swagger
+ * /posts:
+ *   get:
+ *     summary: Returns all posts
+ *     tags: [Posts]
+ *     responses:
+ *       200:
+ *         description: the list of the posts
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: '#/components/schemas/Post'
+ */
+
+app.get("/posts", (req, res) => {
+  res.send(data);
+});
 // Use the router from the post.js file
-app.use("/posts", postRouter);
+// app.use("/posts", postRouter);
 
 app.listen(PORT, () => console.log(`Server runs on port ${PORT}`));
 
