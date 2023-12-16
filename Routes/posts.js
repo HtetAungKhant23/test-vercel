@@ -122,20 +122,20 @@ postRouter.get("/:id", (req, res) => {
  *         description: Some server error
  */
 
-postRouter.post("/", (req, res) => {
-  try {
-    const post = {
-      ...req.body,
-      id: data.length + 1,
-    };
+// postRouter.post("/", (req, res) => {
+//   try {
+//     const post = {
+//       ...req.body,
+//       id: data.length + 1,
+//     };
 
-    data.push(post);
+//     data.push(post);
 
-    res.send(post);
-  } catch (error) {
-    return res.status(500).send(error);
-  }
-});
+//     res.send(post);
+//   } catch (error) {
+//     return res.status(500).send(error);
+//   }
+// });
 
 /**
  * @swagger
@@ -170,4 +170,4 @@ postRouter.delete("/:id", (req, res) => {
   }
 });
 
-export default postRouter;
+// export default postRouter;

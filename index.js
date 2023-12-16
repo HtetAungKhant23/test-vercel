@@ -8,7 +8,7 @@ import swaggerJsDoc from "swagger-jsdoc";
 import bodyParser from "body-parser";
 
 // Import the router from the hello.js file
-import postRouter from "./Routes/posts.js";
+// import postRouter from "./Routes/posts.js";
 import helloRouter from "./src/hello.js";
 
 // CDN CSS
@@ -63,28 +63,12 @@ app.use(
 // Use the router from the hello.js file
 app.use("/", helloRouter);
 
-// /**
-//  * @swagger
-//  * /posts:
-//  *   get:
-//  *     summary: Returns all posts
-//  *     tags: [Posts]
-//  *     responses:
-//  *       200:
-//  *         description: the list of the posts
-//  *         content:
-//  *           application/json:
-//  *             schema:
-//  *               type: array
-//  *               items:
-//  *                 $ref: '#/components/schemas/Post'
-//  */
-
-// app.get("/posts", (req, res) => {
-//   res.send(data);
-// });
+app.get("/posts", (req, res) => {
+  console.log("workkkkk");
+  res.send("this work");
+});
 // Use the router from the post.js file
-app.use("/posts", postRouter);
+// app.use("/posts", postRouter);
 
 app.listen(PORT, () => console.log(`Server runs on port ${PORT}`));
 
